@@ -9,6 +9,7 @@ import miniCSS from "gulp-csso";
 import bro from "gulp-bro";
 import babelify from "babelify";
 import ghPages from "gulp-gh-pages";
+import wait from "gulp-wait"
 
 sass.compiler = require("node-sass");
 
@@ -53,6 +54,7 @@ const img = () =>
 const styles = () =>
   gulp
     .src(routes.scss.src)
+    .pipe(wait(200))
     .pipe(sass().on("error", sass.logError))
     .pipe(autoPrefixer())
     .pipe(miniCSS())

@@ -25,6 +25,7 @@
     "gulp-html-tag-include": "^1.0.1",
     "gulp-image": "^6.2.1",
     "gulp-sass": "^4.1.0",
+    "gulp-wait": "^0.0.2",
     "gulp-webserver": "^0.9.1",
     "node-sass": "^5.0.0",
     "uglifyify": "^5.0.2"
