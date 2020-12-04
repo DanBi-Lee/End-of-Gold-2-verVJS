@@ -1,0 +1,36 @@
+{
+  "name": "End-of-gold",
+  "version": "2.0.0",
+  "description": "황금의 끝자락 리뉴얼",
+  "repository": "https://github.com/DanBi-Lee/End-of-Gold2.git",
+  "author": "LeeDanBi <danbi.s.rain@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1",
+    "babelify": "^10.0.0",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-bro": "^2.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-html-tag-include": "^1.0.1",
+    "gulp-image": "^6.2.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-webserver": "^0.9.1",
+    "node-sass": "^5.0.0",
+    "uglifyify": "^5.0.2"
+  },
+  "browserslist": [
+    "defaults",
+    "last 2 versions"
+  ]
+}
