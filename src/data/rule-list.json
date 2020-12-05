@@ -1,0 +1,30 @@
+{
+    "data" : [
+        {
+            "name-ko" : "인세인",
+            "name-en" : "insane",
+            "image-list" : [
+                {
+                    "name" : "세션카드",
+                    "link" : "session-card"
+                },
+                {
+                    "name" : "맵시트",
+                    "link" : "map-sheet"
+                },
+                {
+                    "name" : "광기카드",
+                    "link" : "madness-card"
+                },
+                {
+                    "name" : "핸드아웃",
+                    "link" : "handout"
+                },
+                {
+                    "name" : "의식시트",
+                    "link" : "ritual-sheet"
+                }
+            ]
+        }
+    ] 
+}
