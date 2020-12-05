@@ -1,0 +1,29 @@
+#footBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border-top: 1px solid #ddd;
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    nav{
+        font-size: 32px;
+
+        a {
+            display: inline-block;
+            transition : 300ms;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            &+a{
+                margin-left: 10px;
+            }
+        }
+    }
+}
