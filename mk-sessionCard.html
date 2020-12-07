@@ -7,8 +7,7 @@
     <script src="https://kit.fontawesome.com/f3b31dec81.js" crossorigin="anonymous" defer></script>
     
     <link rel="stylesheet" href="./css/mk-sessionCard.css">
-    <script src="js/mk-sessionCard.js" defer></script>
-    <!-- <script src="js/image-menu.js" defer></script> -->
+    <script src="js/image-maker.js" defer></script>
     <script src="js/header-sub-mk.js" defer></script>
 
 </head>
@@ -49,24 +48,16 @@
     <section class="mk-image">
         <div class="wrap">
             <h1 class="hidden">이미지 제작</h1>
-            <div class="preview">
-                <div class="imageDom">
-                    <div class="card">
-
-                    </div>
-                </div>
-                <button class="btn-save">이미지 저장하기</button>
-            </div>
             <div class="option">
                 <ul class="step-list">
-                    <li class="on"><button>텍스트</button></li>
-                    <li><button>이미지</button></li>
-                    <li><button>폰트</button></li>
-                    <li><button>꾸미기</button></li>
+                    <li class="on" data-type="text"><button>텍스트</button></li>
+                    <li data-type="image"><button>이미지</button></li>
+                    <li data-type="font"><button>폰트</button></li>
+                    <li data-type="decoration"><button>꾸미기</button></li>
                 </ul>
                 <ul class="option_box">
                     <li class="on">
-                        <article class="text_box">
+                        <article class="text-box">
                             <form action="#">
                                 <fieldset>
                                     <legend class="hidden">이미지 텍스트</legend>
@@ -84,7 +75,8 @@
                                                 <label for="inputHeadCount">인원수</label>
                                             </p>
                                             <p class="input">
-                                                <input type="range" name="inputHeadCount" min="1" max="10">
+                                                <input type="range" name="inputHeadCount" min="1" max="10" value="3">
+                                                <input type="number" min="1" max="10" value="3">인
                                             </p>
                                         </li>
                                         <li>
@@ -92,9 +84,11 @@
                                                 <label for="inputCicleCount">싸이클</label>
                                             </p>
                                             <p class="input">
-                                                <input type="range" name="inputCicleCount" min="1" max="10">
                                                 <input type="checkbox" name="noCicle" id="noCicle">
                                                 <label for="noCicle">싸이클 없음</label>
+                                                <br />
+                                                <input type="range" name="inputCicleCount" min="1" max="10" value="4">
+                                                <input type="number" min="1" max="10" value="4">싸이클
                                             </p>
                                         </li>
                                         <li>
@@ -102,7 +96,7 @@
                                                 <label for="inputSubText">타입</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText" name="inputSubText">
+                                                <input type="text" id="inputSubText" name="inputSubText" placeholder="협력형 / 대립형 / 특수형 등">
                                             </p>
                                         </li>
                                         <li>
@@ -110,7 +104,7 @@
                                                 <label for="inputSubText1">서브 텍스트1</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText1" name="inputSubText1" placeholder="ex. 세션 날짜">
+                                                <input type="text" id="inputSubText1" name="inputSubText1" placeholder="세션 날짜">
                                             </p>
                                         </li>
                                         <li>
@@ -118,7 +112,7 @@
                                                 <label for="inputSubText2">서브 텍스트2</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText2" name="inputSubText2" placeholder="ex. 참여자 목록">
+                                                <input type="text" id="inputSubText2" name="inputSubText2" placeholder="참여자 목록">
                                             </p>
                                         </li>
                                         <li>
@@ -126,7 +120,7 @@
                                                 <label for="inputSubText3">서브 텍스트3</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText3" name="inputSubText3" placeholder="ex. 시나리오 라이터">
+                                                <input type="text" id="inputSubText3" name="inputSubText3" placeholder="시나리오 라이터">
                                             </p>
                                         </li>
                                     </ul>
@@ -136,9 +130,9 @@
                         </article>
                     </li>
                     <li>
-                        <article class="image_box">
-                            <div class="header_imgbox">
-                                <form action="#" class="upload_img">
+                        <article class="image-box">
+                            <div class="header-imgbox">
+                                <form action="#" class="upload-box">
                                     <fieldset>
                                         <legend class="hidden">
                                             이미지 파일 올리기
@@ -147,14 +141,14 @@
                                         <label for="uploadImgfile">이미지 파일 올리기</label>
                                     </fieldset>
                                 </form>
-                                <form action="#" class="search_img">
+                                <form action="#" class="search-box">
                                     <fieldset>
                                         <legend class="hidden">
                                             이미지 검색
                                         </legend>
-                                        <div class="wrap">
+                                        <div class="inner-wrap">
                                             <input type="search" id="searchImg">
-                                          <button type="submit">
+                                            <button type="submit">
                                               <span class="hidden">검색</span>
                                               <i class="fas fa-search"></i>
                                             </button>
@@ -162,49 +156,72 @@
                                     </fieldset>
                                 </form>
                             </div>
-                            <div class="contents_imgbox">
+                            <div class="contents-imgbox">
                                 <p>
                                     이미지를 검색하거나 <br>
                                     직접 이미지 파일을 업로드할 수 있습니다. <br>
                                     <a href="https://pixabay.com/ko/" target="_blank">Photo by pixabay</a>
                                 </p>
+                                <!-- <ul class="result-list">
+                                    <li data-img="https://pixabay.com/get/54e7d04a4256b108f5d08460962e357d143adee34e507749722d79dc9e44cc_1280.jpg">                  
+                                        <button class="wrap_img" style="background-image: url('https://cdn.pixabay.com/photo/2014/02/27/16/09/microscope-275984_150.jpg')">
+                                            <a href="https://pixabay.com/photos/microscope-slide-research-close-up-275984/" target="_blank">원본 ☞ PublicDomainPictures</a>                  
+                                        </button>               
+                                    </li>
+                                </ul> -->
                             </div>
                         </article>
                     </li>
                     <li>
-                        <article class="font_box">
-                            <ul class="header_font">
-                                <li class="on">
+                        <article class="font-box">
+                            <ul class="header-font">
+                                <li class="on" data-type="mainFont">
                                     <button class="btn">
                                         메인
                                     </button>
                                 </li>
-                                <li>
+                                <li data-type="subFont">
                                     <button class="btn">
                                         서브
                                     </button>
                                 </li>
                             </ul>
-                            <ul class="content_font">
+                            <ul class="contents-font">
                                 <li class="main on">
-                                    <ul class="font_list">
-    
+                                    <ul class="font-list mainFont-box">
+                                        <!-- <li class="on">
+                                            <button>
+                                                뫄마체
+                                            </button>
+                                        </li> -->
                                     </ul>
                                 </li>
                                 <li class="sub">
-                                    <ul class="font_list">
-                                        
+                                    <ul class="font-list subFont-box">
+                                        <!-- <li>
+                                            <button>
+                                                뫄마체
+                                            </button>
+                                        </li> -->
                                     </ul>
                                 </li>
                             </ul>
                         </article>
                     </li>
-                    <li class="color_box">
-                        <article>
-    
+                    <li>
+                        <article class="decoration-box">
+                            준비중
                         </article>
                     </li>
                 </ul>
+            </div>
+            <div class="preview">
+                <div class="imageDom">
+                    <div class="card">
+
+                    </div>
+                </div>
+                <button class="btn-save">이미지 저장하기</button>
             </div>
         </div>
     </section>
