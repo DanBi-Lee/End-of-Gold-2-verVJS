@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/f3b31dec81.js" crossorigin="anonymous" defer></script>
     
     <link rel="stylesheet" href="./css/mk-sessionCard.css">
+    <script src="js/load-makerData.js" defer></script>
     <script src="js/image-maker.js" defer></script>
     <script src="js/header-sub-mk.js" defer></script>
 
@@ -67,7 +68,7 @@
                                                 <label for="inputMainText">시나리오 이름</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputMainText" name="inputMainText" placeholder="시나리오 제목을 입력해주세요.">
+                                                <input type="text" id="inputMainText" name="inputMainText" placeholder="시나리오 제목을 입력해주세요." data-texttype="main-text">
                                             </p>
                                         </li>
                                         <li>
@@ -96,7 +97,7 @@
                                                 <label for="inputSubText">타입</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText" name="inputSubText" placeholder="협력형 / 대립형 / 특수형 등">
+                                                <input type="text" id="inputSubText" name="inputSubText" placeholder="협력형 / 대립형 / 특수형 등" data-texttype="scenario-type">
                                             </p>
                                         </li>
                                         <li>
@@ -104,7 +105,7 @@
                                                 <label for="inputSubText1">서브 텍스트1</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText1" name="inputSubText1" placeholder="세션 날짜">
+                                                <input type="text" id="inputSubText1" name="inputSubText1" placeholder="세션 날짜" data-texttype="sub-text1">
                                             </p>
                                         </li>
                                         <li>
@@ -112,7 +113,7 @@
                                                 <label for="inputSubText2">서브 텍스트2</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText2" name="inputSubText2" placeholder="참여자 목록">
+                                                <input type="text" id="inputSubText2" name="inputSubText2" placeholder="참여자 목록" data-texttype="sub-text2">
                                             </p>
                                         </li>
                                         <li>
@@ -120,7 +121,7 @@
                                                 <label for="inputSubText3">서브 텍스트3</label>
                                             </p>
                                             <p class="input">
-                                                <input type="text" id="inputSubText3" name="inputSubText3" placeholder="시나리오 라이터">
+                                                <input type="text" id="inputSubText3" name="inputSubText3" placeholder="시나리오 라이터" data-texttype="sub-text3">
                                             </p>
                                         </li>
                                     </ul>
@@ -137,7 +138,7 @@
                                         <legend class="hidden">
                                             이미지 파일 올리기
                                         </legend>
-                                        <input type="file" name="uploadImgfile" id="uploadImgfile" class="hidden">
+                                        <input type="file" name="uploadImgfile" id="uploadImgfile" class="hidden" accept="image/*">
                                         <label for="uploadImgfile">이미지 파일 올리기</label>
                                     </fieldset>
                                 </form>
@@ -160,7 +161,7 @@
                                 <p>
                                     이미지를 검색하거나 <br>
                                     직접 이미지 파일을 업로드할 수 있습니다. <br>
-                                    <a href="https://pixabay.com/ko/" target="_blank">Photo by pixabay</a>
+                                    <a href="https://unsplash.com/" target="_blank">Photo by unsplash</a>
                                 </p>
                                 <!-- <ul class="result-list">
                                     <li data-img="https://pixabay.com/get/54e7d04a4256b108f5d08460962e357d143adee34e507749722d79dc9e44cc_1280.jpg">                  
