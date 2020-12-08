@@ -6,11 +6,13 @@
             "image-list" : [
                 {
                     "name" : "세션카드",
-                    "link" : "mk-sessionCard.html"
+                    "name-en" : "sessionCard",
+                    "link" : "mk-sessionCard.html?rule=insane&imageType=sessionCard",
+                    "typeNum" : 2
                 },
                 {
                     "name" : "맵시트",
-                    "link" : "map-sheet"
+                    "link" : "mk-sessionCard.html?rule=insane&imageType=mapSheet"
                 },
                 {
                     "name" : "광기카드",
