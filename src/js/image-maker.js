@@ -1,4 +1,4 @@
-import tab from '../util/tab-menu';
+import tab from './util/tab-menu';
 
 window.addEventListener('load', ()=>{
     function tabMenuInFontBox(){
