@@ -27,9 +27,10 @@ export function getParam() {
     return {rule, imageType};
 }
 
+export const {rule, imageType} = getParam();
+
 export default async function loadHTML() {
     // 파라미터에 맞는 HTML출력
-    const {rule, imageType} = getParam();
     const ruleData = await getData();
     const moldData = await getImageMold(imageType) || `에러입니다.`;
     document

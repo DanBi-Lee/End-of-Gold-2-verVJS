@@ -211,11 +211,21 @@ body {
         }
         .search-box {
             position: relative;
+
+            #searchPlatform {
+                position: absolute;
+                width: 100px;
+                height: 40px;
+                top: 0px;
+                left: 0px;
+                padding: 10px;
+            }
+
             #searchImg {
                 width: 100%;
                 height: 40px;
                 border: none;
-                padding-left: 20px;
+                padding-left: 120px;
                 padding-right: 40px;
                 box-sizing: border-box;
                 font-size: 14px;
