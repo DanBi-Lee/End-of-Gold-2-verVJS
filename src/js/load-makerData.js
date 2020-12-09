@@ -1,60 +1,12 @@
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
+import loadHTML, {getParam} from './partials/loadHTML';
+import {loadData, saveData} from './partials/dataManagementForImageFrame';
 
-const imgFrameData = {
-    textData : {
-        'main-text' : '',
-        'sub-text1' : '',
-        'sub-text2' : '',
-        'sub-text3' : '',
-        'scenario-type' : ''
-    },
-    imgData : {
-        'background-img' : '',
-        'downloadlink' : ''
-    }
-};
+const {rule} = getParam();
+const imgFrameData = loadData(rule);
 
 window.addEventListener('load', () => {
-    function getParam() {
-        // queryString 가져오기
-        const params = new URLSearchParams(location.search);
-        const rule = params.get('rule');
-        const imageType = params.get('imageType');
-        return {rule, imageType};
-    }
-
-    async function getData() {
-        // 룰별 데이터 가져오기
-        const response = await fetch('./data/rule-list.json');
-        const data = await response.json();
-        return data;
-    }
-
-    async function getImageMold(imageMoldLink) {
-        // 이미지 틀 가져오기
-        try {
-            const response = await fetch(`./${imageMoldLink}.html`);
-            if (response.status === 404) {
-                return;
-            }
-            const data = await response.text();
-            return data;
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    async function loadHTML() {
-        // 파라미터에 맞는 HTML출력
-        const {rule, imageType} = getParam();
-        const ruleData = await getData();
-        const moldData = await getImageMold(imageType) || `에러입니다.`;
-        document
-            .querySelector('.imageDom')
-            .innerHTML = moldData;
-    }
-
     function setTextDataForImgFrame() {
         // 텍스트 데이터 세팅
         const $textBox = document.querySelector('.text-box');
@@ -68,6 +20,8 @@ window.addEventListener('load', () => {
             const textType = target.dataset.texttype;
             const relativeElement = document.querySelector(`.${textType} span`);
             relativeElement.innerText = `${value}`;
+            imgFrameData.textData[textType] = value;
+            saveData(rule, imgFrameData);
         });
     }
 
@@ -163,6 +117,7 @@ window.addEventListener('load', () => {
             // 데이터에 저장
             imgFrameData.imgData['background-img'] = imgURL;
             imgFrameData.imgData.downloadlink = downloadlink;
+            saveData(rule, imgFrameData);
         });
     }
 
@@ -205,8 +160,20 @@ window.addEventListener('load', () => {
         })
     }
 
+    function setDataOnFrame(data){
+        for(let key in data.textData){
+            const $element = document.querySelector(`.${key} span`);
+            $element.innerText = data.textData[key];
+        }
+        const backgroundImg = data.imgData['background-img'];
+        const $cardImage = document.querySelector('.card-image');
+        console.log(backgroundImg);
+        $cardImage.style.backgroundImage = `url('${backgroundImg}')`;
+    }
+
     async function init() {
         await loadHTML();
+        setDataOnFrame(imgFrameData);
         setTextDataForImgFrame();
         setImgDataForImgFrame();
         handlingSaveBtn();
