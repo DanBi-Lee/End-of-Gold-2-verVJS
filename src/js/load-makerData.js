@@ -1,6 +1,20 @@
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 
+const imgFrameData = {
+    textData : {
+        'main-text' : '',
+        'sub-text1' : '',
+        'sub-text2' : '',
+        'sub-text3' : '',
+        'scenario-type' : ''
+    },
+    imgData : {
+        'background-img' : '',
+        'downloadlink' : ''
+    }
+};
+
 window.addEventListener('load', () => {
     function getParam() {
         // queryString 가져오기
@@ -146,8 +160,9 @@ window.addEventListener('load', () => {
             const imgURL = target_li.dataset.img;
             const downloadlink = target_li.dataset.downloadlink;
             renderBackgoundImgOnFrame(imgURL);
-            // 언스플래시
-            downloadTriggerForUnsplash(downloadlink);
+            // 데이터에 저장
+            imgFrameData.imgData['background-img'] = imgURL;
+            imgFrameData.imgData.downloadlink = downloadlink;
         });
     }
 
@@ -182,6 +197,8 @@ window.addEventListener('load', () => {
             const card = document.querySelector('.card');
             domtoimage.toPng(card).then(function (dataUrl){
                 saveAs(dataUrl, "pretty image.png");
+                // 언스플래시 다운로드 트리거
+                downloadTriggerForUnsplash(imgFrameData.imgData.downloadlink);
               }).catch(function (error) {
                 return console.error(error);
               });
