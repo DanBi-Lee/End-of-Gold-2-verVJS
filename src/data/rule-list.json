@@ -12,18 +12,22 @@
                 },
                 {
                     "name" : "맵시트",
+                    "name-en" : "mapSheet",
                     "link" : "mk-sessionCard.html?rule=insane&imageType=mapSheet"
                 },
                 {
                     "name" : "광기카드",
+                    "name-en" : "madnessCard",
                     "link" : "madness-card"
                 },
                 {
                     "name" : "핸드아웃",
+                    "name-en" : "handout",
                     "link" : "handout"
                 },
                 {
                     "name" : "의식시트",
+                    "name-en" : "ritualSheet",
                     "link" : "ritual-sheet"
                 }
             ]

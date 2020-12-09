@@ -2,6 +2,7 @@ import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import loadHTML, {getParam} from './partials/loadHTML';
 import {loadData, saveData} from './partials/dataManagementForImageFrame';
+import pageTransform from './lib/pageTransform';
 
 const {rule} = getParam();
 const imgFrameData = loadData(rule);
@@ -19,10 +20,31 @@ window.addEventListener('load', () => {
             const value = target.value;
             const textType = target.dataset.texttype;
             const relativeElement = document.querySelector(`.${textType} span`);
+            if(!relativeElement){
+                return;
+            }
             relativeElement.innerText = `${value}`;
             imgFrameData.textData[textType] = value;
             saveData(rule, imgFrameData);
         });
+
+        $textBox.addEventListener('input', e=>{
+            const target = e.target;
+            if (target.type !== "range") {
+                return;
+            }
+            const value = target.value;
+            const textType = target.dataset.texttype;
+            const relativeElement = document.querySelector(`.${textType} span`);
+            const $numberInput = target.parentElement.querySelector('input[type="number"]');
+            if(!relativeElement){
+                return;
+            }
+            $numberInput.value = `${value}`;
+            relativeElement.innerText = `${value}`;
+            imgFrameData.textData[textType] = value;
+            saveData(rule, imgFrameData);
+        })
     }
 
     function renderBackgoundImgOnFrame(imgURL){
@@ -145,7 +167,6 @@ window.addEventListener('load', () => {
     }
 
     function handlingSaveBtn(){
-        
         const btnSave = document.querySelector('.btn-save');
 
         btnSave.addEventListener('click', e => {
@@ -163,12 +184,28 @@ window.addEventListener('load', () => {
     function setDataOnFrame(data){
         for(let key in data.textData){
             const $element = document.querySelector(`.${key} span`);
+            if(!$element){
+                continue;
+            }
             $element.innerText = data.textData[key];
         }
         const backgroundImg = data.imgData['background-img'];
         const $cardImage = document.querySelector('.card-image');
-        console.log(backgroundImg);
+        if(!$cardImage){
+            return;
+        }
         $cardImage.style.backgroundImage = `url('${backgroundImg}')`;
+    }
+
+    function handlingSelectOfImgType(){
+        const $selectImageType = document.querySelector('#selectImageType');
+        $selectImageType.addEventListener('change', async e=>{
+            console.log(e.target.value);
+            const value = e.target.value;
+            pageTransform(rule, value);
+            await loadHTML();
+            setDataOnFrame(imgFrameData);
+        })
     }
 
     async function init() {
@@ -177,6 +214,7 @@ window.addEventListener('load', () => {
         setTextDataForImgFrame();
         setImgDataForImgFrame();
         handlingSaveBtn();
+        handlingSelectOfImgType();
     }
 
     init();
