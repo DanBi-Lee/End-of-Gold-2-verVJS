@@ -30,7 +30,7 @@ const routes = {
   },
   js: {
     watch: "src/js/**/*.js",
-    src: "src/js/**/*.js",
+    src: "src/js/*.js",
     dest: "build/js"
   },
   data: {
