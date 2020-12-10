@@ -4,6 +4,7 @@ import loadHTML, {rule} from './partials/loadHTML';
 import {loadData, saveData} from './partials/dataManagementForImageFrame';
 import pageTransform from './lib/pageTransform';
 import setImgDataForImgFrame, {handlingSearchPlatformSelect} from './lib/setImgDataFormImgFrame';
+import setFontDataForImgFrame, {renderFontOnFrame} from './lib/setFontDataFormImgFrame';
 
 const imgFrameData = loadData(rule);
 
@@ -57,7 +58,7 @@ window.addEventListener('load', () => {
         btnSave.addEventListener('click', e => {
             const card = document.querySelector('.card');
             domtoimage.toPng(card).then(function (dataUrl){
-                saveAs(dataUrl, "pretty image.png");
+                saveAs(dataUrl, "세션카드.png");
                 // 언스플래시 다운로드 트리거
                 downloadTriggerForUnsplash(imgFrameData.imgData.downloadlink);
               }).catch(function (error) {
@@ -67,6 +68,7 @@ window.addEventListener('load', () => {
     }
 
     function setDataOnFrame(data){
+        // textData
         for(let key in data.textData){
             const $element = document.querySelector(`.${key} span`);
             if(!$element){
@@ -74,12 +76,21 @@ window.addEventListener('load', () => {
             }
             $element.innerText = data.textData[key];
         }
+
+        // imgData
         const backgroundImg = data.imgData['background-img'];
         const $cardImage = document.querySelector('.card-image');
         if(!$cardImage){
             return;
         }
         $cardImage.style.backgroundImage = `url('${backgroundImg}')`;
+
+        // fontData
+        console.log(data.fontData);
+        for(let key in data.fontData){
+            console.log(key);
+            renderFontOnFrame(data.fontData[key] ,key);
+        }
     }
 
     function handlingSelectOfImgType(){
@@ -98,6 +109,7 @@ window.addEventListener('load', () => {
         setDataOnFrame(imgFrameData);
         setTextDataForImgFrame();
         setImgDataForImgFrame(imgFrameData);
+        setFontDataForImgFrame();
         handlingSaveBtn();
         handlingSelectOfImgType();
         handlingSearchPlatformSelect();

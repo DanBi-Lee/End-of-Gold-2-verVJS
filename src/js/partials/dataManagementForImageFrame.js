@@ -12,6 +12,10 @@ export function loadData(rule){
             imgData : {
                 'background-img' : '',
                 'downloadlink' : ''
+            },
+            fontData : {
+                main : '',
+                sub : ''
             }
         };
     }else{
