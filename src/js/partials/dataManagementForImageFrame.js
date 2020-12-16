@@ -16,6 +16,20 @@ export function loadData(rule){
             fontData : {
                 main : '',
                 sub : ''
+            },
+            decoData : {
+                'card-image' : {
+                    filter : '',
+                },
+                'bg-color' : {
+                    'background-color': '#000000',
+                    opacity: 0.8
+                },
+                'blend-layer' : {
+                    'mix-blend-mode': '',
+                    'background-color': '#000000',
+                    opacity: 0
+                }
             }
         };
     }else{

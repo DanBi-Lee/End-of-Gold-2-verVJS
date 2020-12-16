@@ -5,6 +5,7 @@ import {loadData, saveData} from './partials/dataManagementForImageFrame';
 import pageTransform from './lib/pageTransform';
 import setImgDataForImgFrame, {handlingSearchPlatformSelect} from './lib/setImgDataFormImgFrame';
 import setFontDataForImgFrame, {renderFontOnFrame} from './lib/setFontDataFormImgFrame';
+import setDecoDataForImgFrame from './lib/setDecoDataFormImgFrame';
 
 const imgFrameData = loadData(rule);
 
@@ -86,10 +87,16 @@ window.addEventListener('load', () => {
         $cardImage.style.backgroundImage = `url('${backgroundImg}')`;
 
         // fontData
-        console.log(data.fontData);
         for(let key in data.fontData){
-            console.log(key);
             renderFontOnFrame(data.fontData[key] ,key);
+        }
+
+        // decoData
+        for(let key in data.decoData){
+            console.log(data.decoData[key], key);
+            for(let prop in data.decoData[key]){
+                document.querySelector(`.${key}`).style[prop] = data.decoData[key][prop];
+            }
         }
     }
 
@@ -110,6 +117,7 @@ window.addEventListener('load', () => {
         setTextDataForImgFrame();
         setImgDataForImgFrame(imgFrameData);
         setFontDataForImgFrame();
+        setDecoDataForImgFrame();
         handlingSaveBtn();
         handlingSelectOfImgType();
         handlingSearchPlatformSelect();

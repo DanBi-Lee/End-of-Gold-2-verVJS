@@ -120,9 +120,12 @@ form {
 fieldset {
     border: none;
 }
+body{
+    word-break: keep-all;
+}
 body,
 select {
-    font-family: 'Gmarket Sans B', sans-serif;
+    font-family: 'GmarketSansBold', sans-serif;
 }
 select {
     outline: none;

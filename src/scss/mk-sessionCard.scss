@@ -376,6 +376,53 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    fieldset {
+        width: 100%;
+        height: 100%;
+    }
+
+    .input-list {
+        margin-bottom: 40px;
+        
+        > li {
+            margin-bottom: 20px;
+            .title {
+                margin-bottom: 10px;
+            }
+            .input {
+                margin-left: 20px;
+                margin-right: 20px;
+    
+                > li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+    
+                    label {
+                        width: 80px;
+                        margin-right: 10px;
+                    }
+    
+                    select {
+                        padding: 4px;
+                    }
+    
+                    input[type="range"] {
+                        width: 100%;
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+
+    .reset {
+        background-color: #999;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
 }
 
 // 카드 디자인
