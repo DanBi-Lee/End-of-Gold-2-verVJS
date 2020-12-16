@@ -1,0 +1,125 @@
+<include src="partials/head.html">
+    <link rel="stylesheet" href="./css/mk-sessionCard.css">
+    <script src="js/load-makerData.js" defer></script>
+    <script src="js/image-maker.js" defer></script>
+    <script src="js/header-sub-mk.js" defer></script>
+</include>
+
+    <include src="partials/header-sub-mk.html"></include>
+    <section class="mk-image">
+        <div class="wrap">
+            <h1 class="hidden">이미지 제작</h1>
+            <div class="option">
+                <ul class="step-list">
+                    <li class="on" data-type="text"><button>텍스트</button></li>
+                    <li data-type="image"><button>이미지</button></li>
+                    <li data-type="font"><button>폰트</button></li>
+                    <li data-type="decoration"><button>꾸미기</button></li>
+                </ul>
+                <ul class="option_box">
+                    <li>
+                        <article class="text-box">
+                            <include src="partials/imgMakerOptions/text-box.html"></include>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="image-box">
+                            <div class="header-imgbox">
+                                <form action="#" class="upload-box">
+                                    <fieldset>
+                                        <legend class="hidden">
+                                            이미지 파일 올리기
+                                        </legend>
+                                        <input type="file" name="uploadImgfile" id="uploadImgfile" class="hidden" accept="image/*">
+                                        <label for="uploadImgfile">이미지 파일 올리기</label>
+                                    </fieldset>
+                                </form>
+                                <form action="#" class="search-box">
+                                    <fieldset>
+                                        <legend class="hidden">
+                                            이미지 검색
+                                        </legend>
+                                        <div class="inner-wrap">
+                                            <select name="searchPlatform" id="searchPlatform">
+                                                <option value="unsplash">unsplash</option>
+                                                <option value="pixabay">pixabay</option>
+                                            </select>
+                                            <input type="search" id="searchImg">
+                                            <button type="submit">
+                                              <span class="hidden">검색</span>
+                                              <i class="fas fa-search"></i>
+                                            </button>
+                                         </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="contents-imgbox">
+                                <p>
+                                    이미지를 검색하거나 <br>
+                                    직접 이미지 파일을 업로드할 수 있습니다. <br>
+                                    <a href="https://unsplash.com/" target="_blank">Photo by unsplash</a>
+                                </p>
+                                <!-- <ul class="result-list">
+                                    <li data-img="https://pixabay.com/get/54e7d04a4256b108f5d08460962e357d143adee34e507749722d79dc9e44cc_1280.jpg">                  
+                                        <button class="wrap_img" style="background-image: url('https://cdn.pixabay.com/photo/2014/02/27/16/09/microscope-275984_150.jpg')">
+                                            <a href="https://pixabay.com/photos/microscope-slide-research-close-up-275984/" target="_blank">원본 ☞ PublicDomainPictures</a>                  
+                                        </button>               
+                                    </li>
+                                </ul> -->
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="font-box">
+                            <ul class="header-font">
+                                <li class="on" data-type="mainFont">
+                                    <button class="btn">
+                                        메인
+                                    </button>
+                                </li>
+                                <li data-type="subFont">
+                                    <button class="btn">
+                                        서브
+                                    </button>
+                                </li>
+                            </ul>
+                            <ul class="contents-font">
+                                <li class="main on">
+                                    <ul class="font-list mainFont-box" data-fonttype="main">
+                                        <!-- <li class="on">
+                                            <button>
+                                                뫄마체
+                                            </button>
+                                        </li> -->
+                                    </ul>
+                                </li>
+                                <li class="sub">
+                                    <ul class="font-list subFont-box" data-fontType="sub">
+                                        <!-- <li>
+                                            <button>
+                                                뫄마체
+                                            </button>
+                                        </li> -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </article>
+                    </li>
+                    <li class="on">
+                        <article class="decoration-box">
+                            <include src="partials/imgMakerOptions/decoration-box.html"></include>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+            <div class="preview">
+                <div class="imageDom">
+                    <div class="card">
+
+                    </div>
+                </div>
+                <button class="btn-save">이미지 저장하기</button>
+            </div>
+        </div>
+    </section>
+<include src="partials/foot.html"></include>

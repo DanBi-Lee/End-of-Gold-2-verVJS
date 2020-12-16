@@ -1,0 +1,74 @@
+{
+    "data" : [
+        {
+            "name" : "ON석보상절B",
+            "code" : "TTSeokbosangjeolB",
+            "type" : "고딕"
+        },
+        {
+            "name" : "쿠키런 Regular",
+            "code" : "CookieRun-Regular",
+            "type" : "고딕"
+        },
+        {
+            "name" : "Gmarket Sans B",
+            "code" : "GmarketSansBold",
+            "type" : "고딕"
+        },
+        {
+            "name" : "정묵바위체",
+            "code" : "SangSangRock",
+            "type" : "고딕"
+        },
+        {
+            "name" : "LAB디지털",
+            "code" : "LAB디지털",
+            "type" : "고딕"
+        },
+        {
+            "name" : "PF스타더스트",
+            "code" : "PFStardust",
+            "type" : "고딕"
+        },
+        {
+            "name" : "KBIZ한마음명조체",
+            "code" : "KBIZHanmaumMyungjo",
+            "type" : "명조"
+        },
+        {
+            "name" : "정속언해 Regular",
+            "code" : "JeongsogeonhaeR",
+            "type" : "명조"
+        },
+        {
+            "name" : "도스명조",
+            "code" : "DOSMyungjo",
+            "type" : "명조"
+        },
+        {
+            "name" : "이순신체",
+            "code" : "YiSunShinRegular",
+            "type" : "명조"
+        },
+        {
+            "name" : "한글재민체",
+            "code" : "Jaemin",
+            "type" : "명조"
+        },
+        {
+            "name" : "어비 다빈체",
+            "code" : "UhBeeRice",
+            "type" : "손글씨"
+        },
+        {
+            "name" : "정선아리랑체",
+            "code" : "JSArirang-Regular",
+            "type" : "손글씨"
+        },
+        {
+            "name" : "미생체",
+            "code" : "SDMiSaeng",
+            "type" : "손글씨"
+        }
+    ]
+}

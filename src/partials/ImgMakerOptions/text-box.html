@@ -1,0 +1,69 @@
+<form action="#">
+    <fieldset>
+        <legend class="hidden">이미지 텍스트</legend>
+        <ul class="input-list">
+            <li>
+                <p class="title">
+                    <label for="inputMainText">시나리오 이름</label>
+                </p>
+                <p class="input">
+                    <input type="text" id="inputMainText" name="inputMainText" placeholder="시나리오 제목을 입력해주세요." data-texttype="main-text">
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputHeadCount">인원수</label>
+                </p>
+                <p class="input">
+                    <input type="range" name="inputHeadCount" min="1" max="10" value="3" data-texttype="head-count">
+                    <input type="number" min="1" max="10" value="3" data-texttype="head-count" disabled>인
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputCycleCount">싸이클</label>
+                </p>
+                <p class="input">
+                    <input type="checkbox" name="noCicle" id="noCicle">
+                    <label for="noCicle">싸이클 없음</label>
+                    <br />
+                    <input type="range" name="inputCycleCount" min="1" max="10" value="4" data-texttype="cycle-count">
+                    <input type="number" min="1" max="10" value="4" data-texttype="cycle-count" disabled>싸이클
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputSubText">타입</label>
+                </p>
+                <p class="input">
+                    <input type="text" id="inputSubText" name="inputSubText" placeholder="협력형 / 대립형 / 특수형 등" data-texttype="scenario-type">
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputSubText1">서브 텍스트1</label>
+                </p>
+                <p class="input">
+                    <input type="text" id="inputSubText1" name="inputSubText1" placeholder="세션 날짜" data-texttype="sub-text1">
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputSubText2">서브 텍스트2</label>
+                </p>
+                <p class="input">
+                    <input type="text" id="inputSubText2" name="inputSubText2" placeholder="참여자 목록" data-texttype="sub-text2">
+                </p>
+            </li>
+            <li>
+                <p class="title">
+                    <label for="inputSubText3">서브 텍스트3</label>
+                </p>
+                <p class="input">
+                    <input type="text" id="inputSubText3" name="inputSubText3" placeholder="시나리오 라이터" data-texttype="sub-text3">
+                </p>
+            </li>
+        </ul>
+        <button type="reset" class="reset btn">텍스트 지우기</button>
+    </fieldset>
+</form>
